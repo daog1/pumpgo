@@ -17,11 +17,12 @@ func main() {
 	// 连接 WebSocket
 	// wss://api.mainnet-beta.solana.com,wss://solana-rpc.publicnode.com
 	// add .env file rpc=wss://mainnet.helius-rpc.com/?api-key=
+	//err := godotenv.Load(".env")
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-	rpcURL := os.Getenv("rpc")
+	rpcURL := os.Getenv("ws")
 	client, err := ws.Connect(context.Background(), rpcURL)
 	if err != nil {
 		log.Fatalf("连接失败: %v", err)
@@ -54,7 +55,9 @@ func main() {
 			log.Printf("接收失败: %v", err)
 			continue
 		}
-		evts, err := pump_amm.DecodeEvents(logResult.Value.Logs)
+		//fmt.Printf("ev: %s\n", logResult.Value.Logs)
+
+		evts, err := pump_amm.DecodeEventsInLogs(logResult.Value.Logs)
 		for _, ev := range evts {
 			fmt.Printf("ev: %s\n", ev.Name)
 			if ev.Name == "CreatePoolEvent" {

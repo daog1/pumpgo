@@ -9,7 +9,7 @@
 ```
 go install github.com/daog1/solana-anchor-go@latest
 ```
-IDL：PumpSwap 的 IDL 文件（假设你已下载为 pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA.json）。
+IDL：PumpSwap 的 IDL 文件,在github仓库里面有（假设你已下载为 pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA.json）。
 
 ## 步骤 1：生成 IDL 的 Go 接口
 用 solana-anchor-go 把 pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA.json 转换为 Go 代码，生成 PumpSwap 的接口。
@@ -124,3 +124,7 @@ solana-anchor-go 是一个挺强大的golang solana链交互工具,只要是anch
 
 完整代码放在:
 https://github.com/daog1/pumpgo
+
+solana-anchor-go在:
+
+https://github.com/daog1/solana-anchor-go
